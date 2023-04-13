@@ -52,7 +52,7 @@ This approach uses the Lock free list implemented in 9.8 of the Art of Multiproc
 
 ### Experimental Evaluation:
 
-The program takes around 2 ms for 50 presents, 10 ms for 500 presents, 57 ms for 5000 presents, 4392 ms for 5000 presents, and 5000 ms to run for the 500000 presents specified, and data racing is used as each thread is constantly taking presents from the unordered bag and adding them to the chain. The program runs until all presents have had thank you cards written for them. The lock-free list approach guarantees that progress is always made.
+The program takes 2 ms for 50 presents, 10 ms for 500 presents, 57 ms for 5000 presents, 4392 ms for 5000 presents, and 568914 ms to run for the 500000 presents specified, and data racing is used as each thread is constantly taking presents from the unordered bag and adding them to the chain. The program runs until all presents have had thank you cards written for them. The lock-free list approach guarantees that progress is always made.
 
 The servants could have had more presents than thank you notes if they skipped over some presents while they removed presents from the chain, because thank you notes are written when presents are removed. To fix this problem, the problem strictly runs until the specified number of presents have been taken from the chain, using atomic integers.
 
